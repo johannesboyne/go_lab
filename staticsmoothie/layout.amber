@@ -1,0 +1,97 @@
+!!! 5
+html
+  head
+    meta[charset="utf-8"]
+    title #{Title}
+    meta[name="viewport"][content="width=device-width"][initial-scale="1.0"]
+    link[rel="stylesheet"][href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"]
+    link[rel="stylesheet"][href="http://purecss.io/combo/1.6.2?/css/layouts/blog.css"]
+    script[src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"]
+    style
+      body {
+        font-size: 0.9em;
+      }
+      .subline {
+        font-size: 0.8em;
+        font-weight: normal;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #eeeeee;
+      }
+      code, pre {
+        background-color: #f2f2f2;
+        font-size: 0.8em;
+        border: 1px solid #ccc;
+      }
+      /* desert scheme ported from vim to google prettify */
+      pre.prettyprint { display: block; background-color: #333 }
+      pre .nocode { background-color: none; color: #000 }
+      pre .str { color: #ffa0a0 } /* string  - pink */
+      pre .kwd { color: #f0e68c; font-weight: bold }
+      pre .com { color: #87ceeb } /* comment - skyblue */
+      pre .typ { color: #98fb98 } /* type    - lightgreen */
+      pre .lit { color: #cd5c5c } /* literal - darkred */
+      pre .pun { color: #fff }    /* punctuation */
+      pre .pln { color: #fff }    /* plaintext */
+      pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+      pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+      pre .atv { color: #ffa0a0 } /* attribute value - pink */
+      pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+      /* Specify class=linenums on a pre to get line numbering */
+      ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+      li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+      /* Alternate shading for lines */
+      li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+      @media print {
+        pre.prettyprint { background-color: none }
+        pre .str, code .str { color: #060 }
+        pre .kwd, code .kwd { color: #006; font-weight: bold }
+        pre .com, code .com { color: #600; font-style: italic }
+        pre .typ, code .typ { color: #404; font-weight: bold }
+        pre .lit, code .lit { color: #044 }
+        pre .pun, code .pun { color: #440 }
+        pre .pln, code .pln { color: #000 }
+        pre .tag, code .tag { color: #006; font-weight: bold }
+        pre .atn, code .atn { color: #404 }
+        pre .atv, code .atv { color: #060 }
+      }
+  body
+    div.pure-g-r[id="layout"]
+      div.sidebar.pure-u
+        header.header
+          hgroup
+            h1.brand-title Johannes Boyne
+            h2.brand-tagline Full-Stack Web Developer
+            h3.subline Node.js, Go, MongoDB, JavaScript, Jade, LESS, SASS, Backbone.js, Angular.js, HTML5, CSS3
+      div.pure-u-1
+        div.content
+          div.posts
+            #{unescaped(Body)}
+            hr[style="height: 0px; border: 1px solid #ccc;"]
+            h1.content-subhead Pages
+              div
+                ul
+                  each $page in Pages
+                    li
+                      a[href="/pages/" + $page] #{$page}
+      div.pure-u-1
+        div.content
+          div
+            footer.footer
+              div.pure-menu.pure-menu-horizontal.pure-menu-open
+                ul
+                  li 
+                    a[href="//about.me/johannesboyne"] About.me
+                  li 
+                    a[href="//twitter.com/johannesboyne"] Twitter
+                  li 
+                    a[href="//github.com/johannesboyne"] Github
+                  li 
+                    a[href="//github.com/johannesboyne"] Xing
+                  li 
+                    a[href="//github.com/johannesboyne"] LinkdIn
+                  li
+                    a[href="/"] #{Footer}

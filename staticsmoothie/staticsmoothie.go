@@ -85,5 +85,5 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	pH := http.HandlerFunc(viewHandler)
-	http.ListenAndServe(":8080", pH)
+	http.ListenAndServe(":"+os.Getenv("PORT"), pH)
 }
